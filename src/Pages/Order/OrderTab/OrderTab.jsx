@@ -13,14 +13,14 @@ const pagination = {
 
 const OrderTab = ({ items }) => {
     return (
-        <div className="grid md:grid-cols-2 gap-10 mb-12 my-16">
+        <div className="grid grid-cols-2 gap-10 mb-12 my-16">
             <Swiper
                 pagination={pagination}
                 modules={[Pagination]}
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="grid md:grid-cols-2 gap-10 mb-12 my-16">
+                    <div className="grid grid-cols-2 gap-10 mb-12 my-16">
                         {
                             items.map(item => <FoodCard
                                 key={item._id}

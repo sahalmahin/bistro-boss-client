@@ -13,14 +13,13 @@ const Order = () => {
     const { category } = useParams();
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
-    const menu = useMenu();
-    console.log(category);
+    const [menu] = useMenu();
 
-    const dessert = menu.filter(item => item.category === 'dessert');
-    const soup = menu.filter(item => item.category === 'soup');
-    const pizza = menu.filter(item => item.category === 'pizza');
-    const salad = menu.filter(item => item.category === 'salad');
-    const drinks = menu.filter(item => item.category === 'drinks');
+    const desserts = menu.filter(item => item.category === "dessert");
+    const soup = menu.filter(item => item.category === "soup");
+    const salad = menu.filter(item => item.category === "salad");
+    const pizza = menu.filter(item => item.category === "pizza");
+    const drinks = menu.filter(item => item.category === "drinks");
 
     return (
         <div>
@@ -46,7 +45,7 @@ const Order = () => {
                     <OrderTab items={soup}></OrderTab>
                 </TabPanel>
                 <TabPanel>
-                    <OrderTab items={dessert}></OrderTab>
+                    <OrderTab items={desserts}></OrderTab>
                 </TabPanel>
                 <TabPanel>
                     <OrderTab items={drinks}></OrderTab>
