@@ -1,12 +1,45 @@
+import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FoodCard = ({ item }) => {
 
-    const { name, recipe, image, price } = item;
-    const {user} = useAuth();
+    const { name, image, price, recipe, _id } = item;
+    const { user } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleAddToCart = food => {
-        console.log(food);
+        if (user && user.email) {
+            // TODO: sent cart item to the database
+            console.log(user, user.email);
+            const cartItem = {
+                menuId: _id,
+                email: user.email,
+                name,
+                image,
+                price
+            }
+            axios.post('http://localhost:5000/carts', cartItem)
+                .then(res => {
+                    console.log(res.data);
+                })
+        } else {
+            Swal.fire({
+                title: "You are not login!",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes login!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //    send the user to the login page
+                    navigate('/login', { state: { from: location } });
+                }
+            });
+        }
     }
 
     return (

@@ -13,6 +13,7 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+    console.log('location in the login page', location.state);
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -33,16 +34,12 @@ const Login = () => {
                     title: "User Login Successful",
                     showClass: {
                         popup: `
-                        animate__animated
-                        animate__fadeInUp
-                        animate__faster
+                        animate__animated animate__fadeInUp animate__faster
                       `
                     },
                     hideClass: {
                         popup: `
-                        animate__animated
-                        animate__fadeOutDown
-                        animate__faster
+                        animate__animated animate__fadeOutDown animate__faster
                       `
                     }
                 });
@@ -93,8 +90,9 @@ const Login = () => {
                                 </label>
                                 <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" required />
                             </div>
+                            {/* TODO: apply 'disable' */}
                             <div className="form-control mt-6">
-                                <input disabled={disabled} className="btn btn-primary" type="submit" value='Login' />
+                                <input disabled={false} className="btn btn-primary" type="submit" value='Login' />
                             </div>
                         </form>
                         <p><small>New Here?<Link to='/signUp'>Create an  Account</Link></small></p>
