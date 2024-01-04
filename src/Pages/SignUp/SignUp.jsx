@@ -51,11 +51,11 @@ const SignUp = () => {
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center md:w-1/2 lg:text-left">
+                    <div className="text-center">
                         <h1 className="text-5xl font-bold">Sign Up!</h1>
                     </div>
-                    <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                    <div className="card xl:w-full max-w-xl shadow-2xl bg-base-100">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body w-full">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -95,14 +95,6 @@ const SignUp = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            {/* <div className="form-control">
-                            <label className="label">
-                                <LoadCanvasTemplate />
-                            </label>
-                            <input type="text" ref={captchaRef} name="captcha" placeholder="type the captcha above" className="input input-bordered" required />
-                            <button onClick={handleValidateCaptcha} className='btn btn-outline btn-xs mt-2'>Validate</button>
-                        </div>
-                        */}
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value='Sign In' />
                             </div>

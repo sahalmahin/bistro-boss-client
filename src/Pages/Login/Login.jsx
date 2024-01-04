@@ -4,6 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -64,10 +65,10 @@ const Login = () => {
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center md:w-1/2 lg:text-left">
+                    <div className="text-center">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                     </div>
-                    <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+                    <div className="card xl:w-full max-w-xl shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -98,7 +99,9 @@ const Login = () => {
                         <p><small>New Here?<Link to='/signUp'>Create an  Account</Link></small></p>
                     </div>
                 </div>
-            </div></>
+                <SocialLogin></SocialLogin>
+            </div>
+        </>
     );
 };
 
