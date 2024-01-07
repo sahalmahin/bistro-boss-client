@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Cart = () => {
-
     const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
     const axiosSecure = useAxiosSecure();
@@ -39,12 +38,13 @@ const Cart = () => {
     return (
         <div>
             <div className="flex justify-evenly mb-8">
-                <h2 className="text-4xl">Total Items: {cart.length}</h2>
+                <h2 className="text-4xl">Items: {cart.length}</h2>
                 <h2 className="text-4xl">Total Price: {totalPrice}</h2>
                 <button className="btn btn-primary">Pay</button>
+
             </div>
             <div className="overflow-x-auto">
-                <table className="table w-full">
+                <table className="table  w-full">
                     {/* head */}
                     <thead>
                         <tr>
@@ -66,7 +66,7 @@ const Cart = () => {
                                 <td>
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
-                                            <div className="mask mask-squircle w-24 h-24">
+                                            <div className="mask mask-squircle w-12 h-12">
                                                 <img src={item.image} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
@@ -85,6 +85,8 @@ const Cart = () => {
                                 </th>
                             </tr>)
                         }
+
+
                     </tbody>
                 </table>
             </div>
