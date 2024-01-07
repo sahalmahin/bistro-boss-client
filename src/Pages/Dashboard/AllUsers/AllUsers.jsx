@@ -19,6 +19,7 @@ const AllUsers = () => {
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {
+                    refetch()
                     Swal.fire({
                         position: "top-end",
                         title: "success",
