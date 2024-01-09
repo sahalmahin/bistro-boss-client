@@ -8,38 +8,37 @@ import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
 const Testimonials = () => {
-
-    const [reviews, setReviews] = useState([]);
     
+    const [reviews, setReviews] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/reviews')
             .then(res => res.json())
-            .then(data => {
-                setReviews(data);
-            })
+            .then(data => setReviews(data))
     }, [])
 
     return (
         <section className="my-20">
             <SectionTitle
-                subHeading='What Our Client Say?'
-                heading='Testimonials'
+                subHeading="What Our Client Say"
+                heading={'Testimonials'}
             ></SectionTitle>
+
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+
                 {
                     reviews.map(review => <SwiperSlide
                         key={review._id}
                     >
-                        <div className="flex flex-col items-center m-28">
+                        <div className="flex flex-col items-center mx-24 my-16">
                             <Rating
                                 style={{ maxWidth: 180 }}
                                 value={review.rating}
                                 readOnly
                             />
-                            <p>{review.details}</p>
+                            <p className="py-8">{review.details}</p>
                             <h3 className="text-2xl text-orange-400">{review.name}</h3>
                         </div>
-                        <button className="btn btn-outline border-0 border-b-4 mt-4">Order now!</button>
                     </SwiperSlide>)
                 }
             </Swiper>
