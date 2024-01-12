@@ -4,6 +4,7 @@ import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
+
     const [cart] = useCart();
 
     // TODO: get isAdmin value from the database
